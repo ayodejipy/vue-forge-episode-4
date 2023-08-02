@@ -12,7 +12,6 @@ const connectedSites = ref<any[]>([]);
 const isInstalled = ref(false);
 const isConnected = computed(() => account.value && publicKey.value);
 
-const CLIENT_CONNECT_URL = "http://127.0.0.1:8080/chainweb/0.0/fast-development/chain" 
 
 export function useWallet() {
   watch(isInstalled, (value) => {
@@ -108,7 +107,7 @@ export function useWallet() {
       // Use the Kadena Client to get the balance
       const client = getClient(
         ({ chainId }) =>
-          `${CLIENT_CONNECT_URL}/${chainId}/pact`
+          `http://127.0.0.1:8080/chainweb/0.0/fast-development/chain/${chainId}/pact`
           // notice we have to point it to the devnet^
       );
 
